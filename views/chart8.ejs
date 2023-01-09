@@ -1,0 +1,91 @@
+
+
+<body>
+  <div> 
+    <canvas id="myChart8" style="width:100%;max-width:700px" aria-label="Hello ARIA World" role="img"></canvas>
+   
+  </div> 
+ </body>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+ <script>
+    var ele=document.getElementById("myChart8");
+  
+ var x= <%- JSON.stringify(x8) %>;
+     var y1= <%- JSON.stringify(y18) %>;
+     var y2= <%- JSON.stringify(y28) %>;
+     var y3= <%- JSON.stringify(y38) %>;
+  
+   
+
+ new Chart(ele, {
+   type: "bar",
+   data: {
+     labels: x,
+     datasets: [
+     {
+      label: '0-18',
+      backgroundColor: 'rgba(255, 99, 132, 0.2)',
+      data: y1,
+      
+    },
+    {
+      label: '19-59',
+      backgroundColor: 'rgba(54, 162, 235, 0.2)',
+      data: y2,
+      
+    },
+    {
+      label: '60 above',
+      backgroundColor: 'rgba(255, 206, 86, 0.2)',
+      data: y3,
+     
+    },
+    ],
+  },
+    options: {
+      title: {
+        display: true,
+        text: 'Offender Age vs Offence Category',
+        fontSize:20,
+      fontStyle:'bold',
+    },
+    scales: {
+      xAxes: [{ stacked: true,
+        display: true,
+    scaleLabel: {
+      display: true,
+      labelString: 'Offence Category',
+      fontSize:20,
+      fontStyle:'bold',
+    }
+   }],
+      yAxes: [{ 
+        stacked: true ,
+        display: true,
+    scaleLabel: {
+      display: true,
+      labelString: 'Number of Offenders',
+      fontSize:20,
+      fontStyle:'bold',
+    },
+    ticks: {
+      
+
+      beginAtZero: true,
+      stepSize: 1 
+    }
+        
+    }],
+    }
+   }
+  
+ });
+ </script>

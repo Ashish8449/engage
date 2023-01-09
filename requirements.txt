@@ -1,0 +1,4 @@
+opencv-python-headless
+face_recognition==1.2.3
+numpy==1.22.3
+cmake==3.22.4

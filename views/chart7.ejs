@@ -1,0 +1,89 @@
+
+
+<body>
+  <div> 
+    <canvas id="myChart7" style="width:100%;max-width:700px" aria-label="Hello ARIA World" role="img"></canvas>
+   
+  </div> 
+ </body>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+ <script>
+    var ele=document.getElementById("myChart7");
+ var x= <%- JSON.stringify(x7) %>;
+     var yfemale= <%- JSON.stringify(y7female) %>;
+     var ymale= <%- JSON.stringify(y7male) %>;
+     var yother= <%- JSON.stringify(y7other) %>;
+  
+   
+     new Chart(ele, {
+   type: "bar",
+   data: {
+     labels: x,
+     datasets: [
+     {
+      label: 'Female',
+      backgroundColor: '#FD8AE6',
+      data: yfemale,
+      
+    },
+    {
+      label: 'Male',
+      backgroundColor: '#2B89F3',
+      data: ymale,
+      
+    },
+    {
+      label: 'Other',
+      backgroundColor: '#A20FE1',
+      data: yother,
+     
+    },
+    ],
+  },
+    options: {
+      title: {
+        display: true,
+        text: 'Offender Gender vs Offence Category',
+        fontSize:20,
+      fontStyle:'bold',
+    },
+    scales: {
+      xAxes: [{ stacked: true,
+        display: true,
+    scaleLabel: {
+      display: true,
+      labelString: 'Offence Category',
+      fontSize:20,
+      fontStyle:'bold',
+    }
+   }],
+      yAxes: [{ 
+        stacked: true ,
+        display: true,
+    scaleLabel: {
+      display: true,
+      labelString: 'Number of Offendors',
+      fontSize:20,
+      fontStyle:'bold',
+    },
+    ticks: {
+      
+
+      beginAtZero: true,
+      stepSize: 1 
+    }
+        
+    }],
+    }
+   }
+  
+ });
+ </script>

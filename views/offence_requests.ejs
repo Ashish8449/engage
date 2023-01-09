@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css"
+      href="/css_files/offence_requests.css">
+    <link rel="stylesheet" type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+  </head>
+
+  <body>
+
+    <%- include('partials/header') %>
+      <div class="container-login100">
+        <div class="container">
+          <% for (var i=0; i < offences.length ; i++) { %>
+            <div class="box">
+              <div class="image">
+                <img src=<%=offences[i].image_path %> alt="img">
+              </div>
+              <div class="name_job">
+                <strong>Offender Name : </strong>
+                <%= offences[i].offender_name %>
+              </div>
+              <p>
+                <strong>Age</strong> : <%=offences[i].offender_age %> years
+                  <br>
+                  <strong>Gender</strong> : <%= offences[i].offender_gender %>
+                    <br>
+                    <strong>Date of Crime</strong> : <%=
+                      offences[i].date_committed%>
+                      <br>
+                      <strong>Region</strong> : <%= offences[i].region%>
+              </p>
+              <div class="btns">
+                <a
+                  href="/accept/offence/<%= offences[i].offence_id %>">Accept</a>
+                <a
+                  href="/reject/offence/<%= offences[i].offence_id%>">Reject</a>
+              </div>
+            </div>
+            <% } %>
+        </div>
+      </div>
+
+  </body>
+
+</html>

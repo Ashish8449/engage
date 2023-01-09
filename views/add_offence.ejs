@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/css_files/add_offence.css">
+
+  </head>
+
+  <body>
+    <%- include('partials/header') %>
+      <form action="/add_offence" method="post" enctype="multipart/form-data">
+        <div class="limiter">
+          <div class="container-login100">
+            <div class="wrap-login100">
+              <span class="login100-form-title">
+                Report Offence
+              </span>
+              <div class="wrap-input100">
+
+                <input class="input100" type="text" id="name" name="name"
+                  placeholder="Name" required>
+
+              </div>
+              <div class="wrap-input100">
+
+                <input class="input100" type="text" id="age" name="age"
+                  placeholder="Age" required>
+
+              </div>
+              <div class="wrap-input101 input102">
+                Offender Gender
+                <input class="gender" type="radio" name="gender" value="Male"
+                  required> Male
+                <input class="gender_internal" type="radio" name="gender"
+                  value="Female"> Female
+                <input class="gender_internal" type="radio" name="gender"
+                  value="Other"> Other
+
+
+              </div>
+              <div class="wrap-input100">
+                <input class="input101" type="file" accept="image/*"
+                  name="photo" required>
+
+              </div>
+              <div class="wrap-input100 ">
+                <input class="input100" placeholder="Date of crime" type="text"
+                  onfocus="(this.type='date')" id="date_committed"
+                  name="date_committed" required>
+
+
+              </div>
+              <div class="wrap-input100 ">
+
+                <select class="input100" name="category" id="category"
+                  onchange="showcategory(this.options[this.selectedIndex].value)"
+                  required>
+                  <option selected="selected">Offence Category</option>
+
+                  <% for (var i=0; i < category.length ; i++) { %>
+
+                    <option value="<%= category[i].category_name %>">
+                      <%= category[i].category_name %>
+                    </option>
+
+
+                    <% } %>
+
+
+
+
+
+                      <option value="OtherCategory">Other Category</option>
+                </select>
+                <div id="div1"></div>
+              </div>
+
+              <div class="wrap-input100 ">
+                <select class="input100" name="region" id="region" required>
+                  <option selected="selected">Region</option>
+
+                  <% for (var i=0; i < locations.length ; i++) { %>
+
+                    <option value="<%= locations[i].region%>">
+                      <%= locations[i].region %>
+                    </option>
+
+
+                    <% } %>
+
+
+
+                </select>
+              </div>
+
+              <div class="wrap-input100 ">
+
+                <input class="input100" type="text" id="victim_age"
+                  name="victim_age" placeholder="Victim Age" required>
+              </div>
+              <div class="wrap-input101 input102 ">
+                Victim Gender
+                <input class="gender" type="radio" name="victim_gender"
+                  value="Male" required> Male
+                <input class="gender_internal" type="radio" name="victim_gender"
+                  value="Female"> Female
+                <input class="gender_internal" type="radio" name="victim_gender"
+                  value="Other"> Other
+              </div>
+
+
+              <div class="container-login100-form-btn">
+                <button class="login100-form-btn" type="submit">
+                  Report Offence
+                </button>
+              </div>
+
+
+
+      </form>
+  </body>
+
+</html>
+
+
+
+
+</div>
+</div>
+</div>
+<script type="text/javascript">
+  function showcategory(name) {
+    if (name == 'OtherCategory') document.getElementById('div1').innerHTML = '<input type="text" id="othercategoryinput" name="othercategory" class="input100 other-category" placeholder= "New Category" onblur="check_repeats(<%= JSON.stringify(category) %>)"/>';
+    else document.getElementById('div1').innerHTML = '';
+  }
+  function titleCase(str) {
+    str = str.toLowerCase().split(' ');
+    for (var i = 0; i < str.length; i++) {
+      str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+    }
+    return str.join(' ');
+  }
+  function check_repeats(category) {
+
+    var val = titleCase(document.getElementById('othercategoryinput').value);
+
+    document.getElementById('othercategoryinput').value = val;
+    for (var i = 0; i < category.length; i++) {
+      console.log(category[i].category_name, val);
+      if (category[i].category_name == val) {
+        document.getElementById('othercategoryinput').value = '';
+        alert("Entered category already exists.");
+
+      }
+
+
+
+    }
+  }
+
+</script>

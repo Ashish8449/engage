@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Search </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+   
+    <link rel="stylesheet" type="text/css" href="/css_files/search.css">
+  
+  </head>
+<body>
+  <%- include('partials/header') %> 
+  <div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+        <span class="login100-form-title">
+         Search Offender
+         </span>
+<form action="/search" method="post" enctype="multipart/form-data" >
+        
+  <div class="wrap-input100 " >
+    <input class="input101" type="file" accept="image/*" name="photo"  required>
+    
+    
+    </span>
+  </div>
+       
+            
+  <div class="container-login100-form-btn">
+    <button class="login100-form-btn" id="button" type="submit">
+      Search
+    </button>
+  </div>
+             
+             
+     
+</form>
+</div>
+    </div>
+  </div>
+            
+</body>
+</html>

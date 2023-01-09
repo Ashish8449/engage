@@ -1,0 +1,124 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+  <link rel="stylesheet" type="text/css" href="/css_files/offender_profile.css">
+</head>
+<%- include('partials/header') %>
+  <div class="container-login100">
+
+    <div class="container">
+      <div class="main-body">
+
+
+
+        <div class="row gutters-sm">
+          <div class="col-md-4 mb-3">
+            <div class="card">
+              <div class="card-body1">
+                <div
+                  class="d-flex flex-column align-items-center text-center image ">
+                  <img src=<%=profile.image_path %> role="img"
+                  class="rounded-circle" width="150">
+                  <div class="mt-3">
+                    <h4>
+                      <%= profile.offender_name %>
+                    </h4>
+                    <p class="text-secondary mb-1"><strong>Age</strong> : <%=
+                        profile.offender_age %>
+                    </p>
+                    <p class="text-muted font-size-sm"><strong>Gender</strong> :
+                      <%= profile.offender_gender %>
+                    </p>
+                    <p class="text-secondary mb-1"><strong>Date Added</strong> :
+                      <%= profile.date_added %>
+                    </p>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-8">
+            <div class="card mb-3">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h3 class="mb-0">Offences</h3>
+                  </div>
+
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Offence Category</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <%= profile.category_name %>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Committed On</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <%= profile.date_committed %>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Offence Region</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <%= profile.region %>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h4 class="mb-0">Victim Details</h4>
+                  </div>
+
+
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Victim Age</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <%= profile.victim_age %>
+                  </div>
+
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Victim Gender</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <%= profile.victim_gender %>
+                  </div>
+
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <a class="btn btn-info " target="__self"
+                      href="/delete_offence/<%= profile.offender_id %>/<%= profile.offence_id %>">Delete</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+          </div>
+        </div>

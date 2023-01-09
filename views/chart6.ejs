@@ -1,0 +1,117 @@
+<body>
+  <div>
+    <canvas id="myChart6" style="width:100%;max-width:700px"
+      aria-label="Hello ARIA World" role="img"></canvas>
+
+  </div>
+</body>
+
+
+
+
+
+
+
+
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script>
+  var ele = document.getElementById("myChart6");
+  var x = <% - JSON.stringify(x6) %>;
+  var yfemale = <% - JSON.stringify(y6female) %>;
+  var ymale = <% - JSON.stringify(y6male) %>;
+  var yother = <% - JSON.stringify(y6other) %>;
+
+
+  new Chart(ele, {
+    type: "bar",
+    data: {
+      labels: x,
+      datasets: [
+        {
+          label: 'Female',
+          backgroundColor: '#FD8AE6',
+          data: yfemale,
+
+        },
+        {
+          label: 'Male',
+          backgroundColor: '#2B89F3',
+          data: ymale,
+
+        },
+        {
+          label: 'Other',
+          backgroundColor: '#A20FE1',
+          data: yother,
+
+        },
+      ],
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Victim Gender vs Offence Category',
+<<<<<<< HEAD
+        fontSize:20,
+      fontStyle:'bold',
+    },
+    scales: {
+      xAxes: [{ stacked: true,
+        display: true,
+    scaleLabel: {
+      display: true,
+      labelString: 'Offence Category',
+      fontSize:20,
+      fontStyle:'bold',
+    }
+   }],
+      yAxes: [{ 
+        stacked: true ,
+        display: true,
+    scaleLabel: {
+      display: true,
+      labelString: 'Number of Offendors',
+      fontSize:20,
+      fontStyle:'bold',
+    },
+    ticks: {
+      
+=======
+        fontSize: 20,
+        fontStyle: 'bold',
+      },
+      scales: {
+        xAxes: [{
+          stacked: true,
+          display: true,
+          scaleLabel: {
+            display: true,
+            labelString: 'Offence Category',
+            fontSize: 20,
+            fontStyle: 'bold',
+          }
+        }],
+        yAxes: [{
+          stacked: true,
+          display: true,
+          scaleLabel: {
+            display: true,
+            labelString: 'Number of Victims',
+            fontSize: 20,
+            fontStyle: 'bold',
+          },
+          ticks: {
+>>>>>>> d6157599eaf4f18681c7e552896ed0fce1fe5afe
+
+
+            beginAtZero: true,
+            stepSize: 1
+          }
+
+        }],
+      }
+    }
+
+  });
+</script>
